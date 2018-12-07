@@ -1,0 +1,23 @@
+﻿<link rel="stylesheet" href="~/css/favorites.css" />
+@model IList<ParksBySurvey>
+@{
+    ViewData["Title"] = "Favorites";
+}
+<img class="logo" src="~/img/logo.png" />
+<h2>Favorites</h2>
+
+
+
+<table>
+<tbody>
+    @foreach (var survey in Model)
+    {
+        string imageName = survey.ParkCode + ".jpg";
+        <tr>
+            <td id="imgN"><img id="images" src="~/img/parks/@imageName"></td>
+            <td id="pName"><h4>@survey.ParkName</h4></td>            
+            <td id="num"><h4>@survey.numberOfSurveys</h4></td>            
+        </tr>        
+    }
+</tbody>
+</table>

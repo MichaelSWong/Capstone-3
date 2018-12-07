@@ -1,0 +1,24 @@
+﻿@model WeatherModel
+
+@*<h2>@ViewData["Title"]</h2>*@
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+
+<div>
+    <form asp-controller="Home" asp-action="ChangeTemp" method="post">
+        <input asp-for="ParkCode" type ="hidden" />
+        <div>
+            <label asp-for="isCelsius">Temperature</label>
+            <select asp-for="isCelsius" asp-items="WeatherModel.TempSelect"></select>
+        </div>
+        <div id="button">
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>
+
+@*Move the form to a partial view that takes an*@

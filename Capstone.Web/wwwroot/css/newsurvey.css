@@ -1,0 +1,29 @@
+﻿#button {
+    padding-left: 200px;
+    margin-top:20px;
+}
+.Spacing1{
+    margin-left:25px;
+    
+}
+.Spacing2 {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.Spacing3 {
+    margin-left: 47px;
+    margin-top: 10px;
+}
+.Spacing4 {
+    margin-left: 82px;
+    margin-top: 10px;
+}
+.Spacing0{
+    margin-top:30px;
+}
+.logo {
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

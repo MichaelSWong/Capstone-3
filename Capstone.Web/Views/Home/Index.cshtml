@@ -1,0 +1,29 @@
+﻿<link rel="stylesheet" href="~/css/homeIndex.css" />
+@model IList<ParkModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@*@{ string imageName = Model.ParkCode + ".jpg"; }*@
+<img class="logo" src="~/img/logo.png" />
+<div class="wrapper">
+    @foreach (ParkModel park in Model)
+    {
+        string imageName = park.ParkCode + ".jpg";
+    <div>
+        <a href="~/home/detail?code=@park.ParkCode"><img id="images" src="~/img/parks/@imageName" /></a>
+        <hr />
+    </div>
+        <div><h3>
+            <a href="~/home/detail?code=@park.ParkCode"> @park.ParkName</a>
+            </h3>
+            <h4>@park.State</h4>
+
+
+            <h4>@park.ParkDescription</h4>
+            
+        </div>
+        
+    }    
+</div>

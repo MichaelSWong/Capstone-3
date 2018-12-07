@@ -1,0 +1,35 @@
+﻿<link rel="stylesheet" href="~/css/newsurvey.css" />
+@model SurveyModel
+@{
+    ViewData["Title"] = "NewSurvey";
+}
+
+<img class="logo" src="~/img/logo.png" />
+
+<form asp-controller="Home" asp-action="NewSurvey" method="post">
+    <div class="Spacing0">
+        <label asp-for="parkCode">Favorite National Park</label>
+        <select class="Spacing1" asp-for="parkCode" asp-items="SurveyModel.ParkSelect"></select>
+    </div>
+    <div>
+        <label asp-for="emailAddress">Your Email</label>
+        <input class="Spacing2" type="email" asp-for="emailAddress" />
+    </div>
+    <div>
+        <label asp-for="state">State of Residence</label>
+        <select class="Spacing3" asp-for="state" asp-items="SurveyModel.StatesAbb"></select>
+    </div>
+    <div>
+        <label asp-for="activityLevel">Activity Level</label>
+        <select class="Spacing4" asp-for="activityLevel" asp-items="SurveyModel.Active"></select>
+    </div>
+    <div id="button">
+        <input type="submit" value="Submit" />
+    </div>
+
+
+
+
+
+</form>
+

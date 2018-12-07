@@ -1,0 +1,90 @@
+﻿<link rel="stylesheet" href="~/css/weatherdetail.css" />
+@model IList<WeatherModel>
+@{
+    ViewData["Title"] = "WeatherDetailView";
+}
+<img class="logo" src="~/img/logo.png" />
+<div class="text">
+    <h2>Five Day Forecast:  @Model[0].ParkName</h2>
+</div>
+
+<table class="table table-striped">
+
+    <tbody>
+        @foreach (WeatherModel item in Model)
+        {
+
+            List<string> icons = new List<string>();
+            string imageName = item.Forecast + ".png";
+
+        <tr>
+
+            @{
+                if (item.FiveDayForecastValue == 1)
+                {
+                    <td>@DateTime.Now.ToString("dddd")</td>
+                }
+                if (item.FiveDayForecastValue == 2)
+                {
+                    <td>@DateTime.Now.AddDays(1).ToString("dddd")</td>
+                }
+                if (item.FiveDayForecastValue == 3)
+                {
+                    <td>@DateTime.Now.AddDays(2).ToString("dddd")</td>
+                }
+                if (item.FiveDayForecastValue == 4)
+                {
+                    <td>@DateTime.Now.AddDays(3).ToString("dddd")</td>
+                }
+                if (item.FiveDayForecastValue == 5)
+                {
+                    <td>@DateTime.Now.AddDays(4).ToString("dddd")</td>
+                }
+            }
+            @*<td>@item.FiveDayForecastValue</td>*@
+            <td>@item.Low@item.tempUnit</td>
+            <td>@item.High@item.tempUnit</td>
+            <td></td>
+            <td>@item.Forecast<img src="~/img/weather/@imageName" /></td>
+
+            <td>
+                @{
+
+                    icons.Clear();
+                    icons.AddRange(item.SafetyIconHelper(item));
+                    foreach (var itemw in icons)
+                    {
+                        <img src="~/img/weather/Icons/@itemw" />
+
+                        }
+                    }
+          </td>
+            @{ 
+                icons.Clear();
+                icons.AddRange(item.WeatherIconHelper(item));
+                foreach (var itemw in icons)
+                {
+                    <td>@itemw</td>
+                }
+
+                }
+            </tr>
+
+        }
+    </tbody>
+</table>
+<partial name="Temp" model="@Model[0]" />
+
+
+
+@*<label>
+        <input type="radio" data-role="none" name="tempUnit" checked="checked" value="true">
+    </label>
+    <span>°F</span>
+    <label>
+        <input type="radio" data-role="none" name="tempUnit" checked="checked" value="false">
+    </label>
+    <span>°C</span>
+    <a class="btns-one-small" href="" ng-click="ChangeTemp()" id="btn-adjust">Adjust</a>*@
+
+

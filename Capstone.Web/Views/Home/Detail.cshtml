@@ -1,0 +1,30 @@
+﻿<link rel="stylesheet" href="~/css/detail.css" />
+@model ParkModel
+@{ 
+    ViewData["Title"] = "Detail";
+}
+@{
+}
+<img class="logo" src="~/img/logo.png" />
+<hr />
+<div class="text">
+    @{string imageName = Model.ParkCode + ".jpg";
+    <img id="images" src="~/img/parks/@imageName" />
+    <h3>Park Name: @Model.ParkName</h3>
+    <h4>State: @Model.State</h4>
+    <h4>Park Code: @Model.ParkCode</h4>
+    <h4>Acreage: @Model.Acreage Acres</h4>
+    <h4>Elevation: @Model.ElevationInFeet feet</h4>
+    <h4>Trails: @Model.MilesOfTrail miles</h4>
+    <h4>Campsites: @Model.NumberOfCampsites campsites</h4>
+    <h4>Climate: @Model.Climate</h4>
+    <h4>Year Founded: @Model.YearFounded</h4>
+    <h4>Visitors: @Model.AnnualVisitorCount visitors a year</h4>
+    <h4>@Model.InspirationalQuote   By @Model.InspirationalQuoteSource</h4>    
+    <h4>Description: @Model.ParkDescription</h4>
+    <h4>Entry Fee: $@Model.EntryFee</h4>
+    <h4>Species of Animals: @Model.NumberOfAnimalSpecies</h4>
+        }
+    <a href="~/home/WeatherDetailView?code=@Model.ParkCode">Weather</a>
+
+</div>
